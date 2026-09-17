@@ -24,7 +24,12 @@ class handDetector():
 
         # Initialize the MediaPipe Hands solution
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands()
+        self.hands = self.mpHands.Hands(
+                                        static_image_mode=self.mode,
+                                        max_num_hands=self.maxHands,
+                                        min_detection_confidence=self.detection,
+                                        min_tracking_confidence=self.trackCon
+                                    )
         # Utility to draw the hand landmarks and connections on the image
         self.mpDraw = mp.solutions.drawing_utils
 
